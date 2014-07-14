@@ -28,6 +28,7 @@
 
 #include <flacpicture.h>
 #include <xiphcomment.h>
+#include <tpicturemap.h>
 #include <tpropertymap.h>
 
 using namespace TagLib;
@@ -137,6 +138,11 @@ unsigned int Ogg::XiphComment::track() const
   return 0;
 }
 
+TagLib::PictureMap Ogg::XiphComment::pictures() const
+{
+    return PictureMap();
+}
+
 void Ogg::XiphComment::setTitle(const String &s)
 {
   addField("TITLE", s);
@@ -185,6 +191,10 @@ void Ogg::XiphComment::setTrack(unsigned int i)
     removeFields("TRACKNUMBER");
   else
     addField("TRACKNUMBER", String::number(i));
+}
+
+void Ogg::XiphComment::setPictures(const PictureMap &l)
+{
 }
 
 bool Ogg::XiphComment::isEmpty() const

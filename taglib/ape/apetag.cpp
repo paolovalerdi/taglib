@@ -34,6 +34,7 @@
 #include <tfile.h>
 #include <tstring.h>
 #include <tmap.h>
+#include <tpicturemap.h>
 #include <tpropertymap.h>
 #include <tdebug.h>
 #include <tutils.h>
@@ -163,6 +164,11 @@ unsigned int APE::Tag::track() const
   return d->itemListMap["TRACK"].toString().toInt();
 }
 
+TagLib::PictureMap APE::Tag::pictures() const
+{
+    return PictureMap();
+}
+
 void APE::Tag::setTitle(const String &s)
 {
   addValue("TITLE", s, true);
@@ -202,6 +208,10 @@ void APE::Tag::setTrack(unsigned int i)
     removeItem("TRACK");
   else
     addValue("TRACK", String::number(i), true);
+}
+
+void APE::Tag::setPictures(const PictureMap &l)
+{
 }
 
 namespace

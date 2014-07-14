@@ -27,6 +27,7 @@
 #define TAGLIB_TAG_H
 
 #include "taglib_export.h"
+
 #include "tstring.h"
 
 namespace TagLib {
@@ -42,6 +43,7 @@ namespace TagLib {
    */
 
   class PropertyMap;
+  class PictureMap;
 
   class TAGLIB_EXPORT Tag
   {
@@ -120,6 +122,12 @@ namespace TagLib {
     virtual unsigned int track() const = 0;
 
     /*!
+     * Returns a list of pictures available; if there is no picture, the list
+     * will be empty
+     */
+    virtual PictureMap pictures() const = 0;
+
+    /*!
      * Sets the title to \a s.  If \a s is String::null then this value will be
      * cleared.
      */
@@ -161,6 +169,11 @@ namespace TagLib {
      * Sets the track to \a i.  If \a s is 0 then this value will be cleared.
      */
     virtual void setTrack(unsigned int i) = 0;
+
+    /*!
+     *  Sets the list of pictures
+     */
+    virtual void setPictures( const PictureMap& l ) = 0;
 
     /*!
      * Returns true if the tag does not contain any data.  This should be
