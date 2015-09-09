@@ -172,7 +172,7 @@ namespace TagLib {
       virtual void setGenre(const String &s);
       virtual void setYear(unsigned int i);
       virtual void setTrack(unsigned int i);
-      virtual void setPictures( const PictureMap& l );
+      virtual void setPictures(const PictureMap &l);
 
       virtual bool isEmpty() const;
 
