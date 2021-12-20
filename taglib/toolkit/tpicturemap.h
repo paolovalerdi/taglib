@@ -33,46 +33,49 @@
 
 namespace TagLib {
 
-  //! A list of pictures
-  typedef List<Picture> PictureList;
+    //! A list of pictures
+    typedef List<Picture> PictureList;
 
-  /*!
-  * This is a spcialization of the List class with some members.
-  */
-  class TAGLIB_EXPORT PictureMap : public Map< Picture::Type, PictureList >
-  {
-  public:
+    /// TODO: review this interface before the release of TagLib v2.x in light of
+    /// https://github.com/taglib/taglib/issues/734#issuecomment-214001325
 
     /*!
-     * Constructs an empty PictureList.
-     */
-    PictureMap();
+    * This is a spcialization of the List class with some members.
+    */
+    class TAGLIB_EXPORT PictureMap : public Map< Picture::Type, PictureList >
+    {
+    public:
 
-    /*!
-     * Constructs a PictureMap with \a Picture.
-     */
-    PictureMap(const Picture &p);
+        /*!
+         * Constructs an empty PictureList.
+         */
+        PictureMap();
 
-    /*!
-     * Constructs a PictureMap with \a PictureList as a member.
-     */
-    PictureMap(const PictureList &l);
+        /*!
+         * Constructs a PictureMap with \a Picture.
+         */
+        PictureMap(const Picture &p);
 
-    /*!
-     * Destroys this PictureList instance.
-     */
-    virtual ~PictureMap();
+        /*!
+         * Constructs a PictureMap with \a PictureList as a member.
+         */
+        PictureMap(const PictureList &l);
 
-    /*!
-     * Inserts a PictureList into the picture map
-     */
-    void insert(const PictureList &l);
+        /*!
+         * Destroys this PictureList instance.
+         */
+        virtual ~PictureMap();
 
-    /*!
-     * Inserts a Picture into the picture map
-     */
-    void insert(const Picture &p);
-  };
+        /*!
+         * Inserts a PictureList into the picture map
+         */
+        void insert(const PictureList &l);
+
+        /*!
+         * Inserts a Picture into the picture map
+         */
+        void insert(const Picture &p);
+    };
 
 }
 
